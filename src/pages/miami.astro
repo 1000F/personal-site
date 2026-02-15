@@ -1,0 +1,9 @@
+---
+import "../styles/global.css";
+import HomePage from "../components/HomePage.astro";
+import { getPosts, site } from "../lib/site";
+
+const posts = await getPosts(12);
+---
+
+<HomePage site={site} posts={posts} theme="miami" badge="miami/vice" />

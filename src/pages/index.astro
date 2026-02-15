@@ -1,0 +1,23 @@
+---
+import "../styles/global.css";
+import HomePage from "../components/HomePage.astro";
+import { getPosts, site } from "../lib/site";
+
+type Theme = "default" | "drive" | "brutal" | "miami";
+
+const themeParam = (Astro.url?.searchParams?.get("theme") || "default").toLowerCase();
+const theme = (["default", "drive", "brutal", "miami"] as const).includes(themeParam as any)
+  ? (themeParam as Theme)
+  : ("default" as Theme);
+
+const posts = await getPosts(12);
+
+const badgeByTheme: Record<Theme, string> = {
+  default: "miami/pg",
+  drive: "drive",
+  brutal: "brutal",
+  miami: "miami",
+};
+---
+
+<HomePage site={site} posts={posts} theme={theme} badge={badgeByTheme[theme]} />

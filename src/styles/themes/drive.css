@@ -1,0 +1,86 @@
+/*
+  DRIVE (2011) / neo-noir synthwave
+  - deep blacks, neon magenta/cyan
+  - subtle scanlines + glow
+*/
+
+html[data-theme="drive"]{
+  --bg: #070810;
+  --ink: rgba(245, 242, 255, .92);
+  --muted: rgba(245, 242, 255, .62);
+  --line: rgba(245, 242, 255, .12);
+
+  --pink: #ff2bd6;
+  --cyan: #22f0ff;
+  --purple: #7c3aed;
+  --sunset: linear-gradient(90deg, var(--pink), var(--cyan));
+
+  --card-bg: rgba(12, 10, 22, .72);
+  --card-shadow:
+    0 24px 90px rgba(0,0,0,.55),
+    0 0 0 1px rgba(34,240,255,.14) inset,
+    0 0 0 1px rgba(255,43,214,.10);
+  --radius: 18px;
+}
+
+html[data-theme="drive"] body{
+  background:
+    radial-gradient(1200px 650px at 20% -10%, rgba(255,43,214,.22), transparent 55%),
+    radial-gradient(900px 650px at 95% 10%, rgba(34,240,255,.18), transparent 52%),
+    radial-gradient(700px 800px at 35% 120%, rgba(124,58,237,.16), transparent 60%),
+    linear-gradient(180deg, rgba(0,0,0,.0) 0%, rgba(0,0,0,.25) 40%, rgba(0,0,0,.65) 100%),
+    repeating-linear-gradient(
+      0deg,
+      rgba(255,255,255,.04) 0,
+      rgba(255,255,255,.04) 1px,
+      transparent 2px,
+      transparent 4px
+    ),
+    var(--bg);
+}
+
+html[data-theme="drive"] a:hover{ color: var(--cyan); }
+
+html[data-theme="drive"] .topbar{
+  border-bottom-color: rgba(34,240,255,.16);
+  box-shadow: 0 10px 50px rgba(0,0,0,.35);
+}
+
+html[data-theme="drive"] .nav a:hover{
+  background: rgba(255,43,214,.10);
+  box-shadow:
+    0 0 0 1px rgba(34,240,255,.18) inset,
+    0 0 24px rgba(255,43,214,.18);
+}
+
+html[data-theme="drive"] .badge{
+  border-color: rgba(34,240,255,.30);
+  background: linear-gradient(90deg, rgba(255,43,214,.18), rgba(34,240,255,.16));
+  box-shadow: 0 0 28px rgba(34,240,255,.10);
+}
+
+html[data-theme="drive"] .card{
+  border-color: rgba(34,240,255,.18);
+}
+
+html[data-theme="drive"] .postlist li{
+  border-top-color: rgba(245, 242, 255, .14);
+}
+
+html[data-theme="drive"] .holo{
+  text-shadow:
+    0 0 18px rgba(255,43,214,.22),
+    0 0 22px rgba(34,240,255,.16);
+}
+
+html[data-theme="drive"] .themebar a{
+  background: rgba(0,0,0,.25);
+  border-color: rgba(245,242,255,.14);
+}
+
+html[data-theme="drive"] .themebar a.is-active{
+  border-color: rgba(34,240,255,.40);
+  box-shadow:
+    0 0 0 1px rgba(255,43,214,.16) inset,
+    0 0 26px rgba(34,240,255,.10);
+}

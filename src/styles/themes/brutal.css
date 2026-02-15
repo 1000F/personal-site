@@ -1,0 +1,112 @@
+/*
+  BRUTALIST / minimal edgy
+  - harsh lines, mono typography, no gradients
+  - intentional “raw HTML” vibe with modern spacing
+*/
+
+html[data-theme="brutal"]{
+  --bg: #ffffff;
+  --ink: #070707;
+  --muted: rgba(7,7,7,.65);
+  --line: rgba(7,7,7,.28);
+
+  --pink: #000000;
+  --cyan: #000000;
+  --purple: #000000;
+  --sunset: none;
+
+  --card-bg: #ffffff;
+  --card-shadow: none;
+  --radius: 0px;
+}
+
+html[data-theme="brutal"] body{
+  background: var(--bg);
+  color: var(--ink);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  line-height: 1.45;
+}
+
+html[data-theme="brutal"] .container{
+  width: min(820px, calc(100% - 32px));
+}
+
+html[data-theme="brutal"] .topbar{
+  padding: 24px 0 12px;
+  border-bottom: 3px solid var(--ink);
+}
+
+html[data-theme="brutal"] .brand h1{
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  letter-spacing: 0;
+}
+
+html[data-theme="brutal"] .badge{
+  border: 2px solid var(--ink);
+  background: transparent;
+  border-radius: 0;
+}
+
+html[data-theme="brutal"] .nav{
+  font-size: .9rem;
+}
+
+html[data-theme="brutal"] .nav a{
+  border: 2px solid transparent;
+  border-radius: 0;
+  padding: 4px 6px;
+}
+
+html[data-theme="brutal"] .nav a:hover{
+  background: transparent;
+  box-shadow: none;
+  border-color: var(--ink);
+}
+
+html[data-theme="brutal"] .holo{
+  background: none;
+  -webkit-background-clip: initial;
+  background-clip: initial;
+  color: var(--ink);
+  text-shadow: none;
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 3px;
+}
+
+html[data-theme="brutal"] .section h2{
+  font-size: 1.0rem;
+}
+
+html[data-theme="brutal"] .card{
+  border: 3px solid var(--ink);
+  padding: 14px;
+}
+
+html[data-theme="brutal"] .postlist li{
+  border-top: 2px solid var(--ink);
+  padding: 12px 0;
+}
+
+html[data-theme="brutal"] a{
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+html[data-theme="brutal"] a:hover{
+  color: var(--ink);
+  background: #ffe94a;
+}
+
+html[data-theme="brutal"] .themebar a{
+  border-width: 2px;
+  border-radius: 0;
+  background: transparent;
+}
+
+html[data-theme="brutal"] .themebar a.is-active{
+  background: #ffe94a;
+  border-color: var(--ink);
+  box-shadow: none;
+}

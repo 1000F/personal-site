@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
+  <!-- Neo-noir "night road" mark (original, geometric; no copyrighted imagery) -->
+  <defs>
+    <linearGradient id="neon" x1="18" y1="20" x2="110" y2="112" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FF3EA5"/>
+      <stop offset="0.55" stop-color="#32C5FF"/>
+      <stop offset="1" stop-color="#FFB020"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="2.2" result="b"/>
+      <feColorMatrix in="b" type="matrix"
+        values="1 0 0 0 0
+                0 1 0 0 0
+                0 0 1 0 0
+                0 0 0 0.35 0" result="g"/>
+      <feMerge>
+        <feMergeNode in="g"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect x="8" y="8" width="112" height="112" rx="24" fill="#0B0D13"/>
+
+  <!-- Small "sun" glow -->
+  <circle cx="64" cy="42" r="10" fill="url(#neon)" opacity="0.9" filter="url(#glow)"/>
+
+  <!-- Road / lane lines -->
+  <path d="M50 104 L60 58" stroke="url(#neon)" stroke-width="6" stroke-linecap="round" filter="url(#glow)"/>
+  <path d="M78 104 L68 58" stroke="url(#neon)" stroke-width="6" stroke-linecap="round" filter="url(#glow)"/>
+
+  <!-- Center dashed line (subtle) -->
+  <path d="M64 104 L64 72" stroke="#E6E9F2" stroke-opacity="0.32" stroke-width="3" stroke-linecap="round" stroke-dasharray="6 8"/>
+</svg>
