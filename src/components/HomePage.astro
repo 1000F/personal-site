@@ -1,7 +1,7 @@
 ---
 import type { FeedItem } from "../lib/substack";
 
-type Theme = "default" | "drive" | "brutal" | "miami";
+type Theme = "brutal";
 
 const { posts, theme, badge } = Astro.props as {
   posts: FeedItem[];
@@ -26,12 +26,8 @@ const site = Astro.props.site as {
   twitter?: string;
 };
 
-function themeLabel(t: Theme) {
-  if (t === "drive") return "Drive";
-  if (t === "brutal") return "Brutal";
-  if (t === "miami") return "Miami";
-  return "Default";
-}
+// Single theme: brutal
+
 ---
 
 <html lang="en" data-theme={theme}>
@@ -59,7 +55,7 @@ function themeLabel(t: Theme) {
       <meta name="twitter:site" content={site.twitter.startsWith("@") ? site.twitter : `@${site.twitter}`} />
     ) : null}
 
-    <link rel="icon" type="image/svg+xml" href={theme === "drive" ? "/favicon-drive.svg" : "/favicon.svg"} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
   </head>
 
@@ -77,20 +73,11 @@ function themeLabel(t: Theme) {
             </p>
           </div>
           <nav class="nav" aria-label="Primary">
-            <a href="#projects">projects</a>
             <a href="#writings">writing</a>
             <a href="#about">about</a>
+            <a href="#contact">contact</a>
             <a href={site.substackUrl} target="_blank" rel="noreferrer">substack ↗</a>
           </nav>
-        </div>
-
-        <div class="themebar" aria-label="Theme">
-          <span class="themebar__label">Theme:</span>
-          <a class={theme === "default" ? "is-active" : ""} href="/?theme=default">default</a>
-          <a class={theme === "drive" ? "is-active" : ""} href="/drive">drive</a>
-          <a class={theme === "brutal" ? "is-active" : ""} href="/brutal">brutal</a>
-          <a class={theme === "miami" ? "is-active" : ""} href="/miami">miami</a>
-          <span class="themebar__current">({themeLabel(theme)})</span>
         </div>
       </div>
     </header>
@@ -98,59 +85,16 @@ function themeLabel(t: Theme) {
     <main class="container">
       <section class="hero">
         <p class="small">
-          For the work: <a href="#projects">projects</a>. For ideas: <a href="#writings">writing</a>.
+          If you’re looking for the main feed: <a href="#writings">start here</a>.
         </p>
 
         <div class="card" style="margin-top: 12px;">
           <p class="small" style="margin: 0;">
             Featured:
-            <a href="#projects">Projects</a>
-            ·
-            <a href={site.substackUrl} target="_blank" rel="noreferrer">Substack</a>
+                        <a href={site.substackUrl} target="_blank" rel="noreferrer">Substack</a>
             ·
             <a href="#contact">Email</a>
           </p>
-        </div>
-      </section>
-
-      <section id="projects" class="section">
-        <h2>Projects</h2>
-        <div class="card">
-          {site.projects?.length ? (
-            <ul class="postlist">
-              {site.projects.map((p) => (
-                <li style="padding: 10px 0;">
-                  <div style="display:flex; gap:10px; align-items:baseline; flex-wrap:wrap;">
-                    <strong>{p.name}</strong>
-                    <span class="small" style="opacity:0.85;">{p.blurb}</span>
-                  </div>
-
-                  {p.bullets?.length ? (
-                    <ul class="small" style="margin: 8px 0 0 18px; opacity: 0.9;">
-                      {p.bullets.map((b) => (
-                        <li>{b}</li>
-                      ))}
-                    </ul>
-                  ) : null}
-
-                  {p.links?.length ? (
-                    <p class="small" style="margin: 8px 0 0 0;">
-                      {p.links
-                        .filter((l) => l.href)
-                        .map((l, idx) => (
-                          <>
-                            {idx ? " · " : ""}
-                            <a href={l.href} target="_blank" rel="noreferrer">{l.label}</a>
-                          </>
-                        ))}
-                    </p>
-                  ) : null}
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p class="small">A few things I’ve built and shipped.</p>
-          )}
         </div>
       </section>
 
