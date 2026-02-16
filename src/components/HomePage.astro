@@ -11,11 +11,13 @@ const { posts, theme, badge } = Astro.props as {
 
 const site = Astro.props.site as {
   name: string;
+  title?: string;
   headline: string;
   substackUrl: string;
   domain: string;
   about: string;
   email?: string;
+  twitter?: string;
 };
 
 function themeLabel(t: Theme) {
@@ -32,9 +34,24 @@ function themeLabel(t: Theme) {
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
 
-    <title>{site.name}</title>
+    <title>{site.name}{site.title ? ` — ${site.title}` : ""}</title>
     <meta name="description" content={`${site.name} — ${site.headline}`} />
     <link rel="canonical" href={`https://${site.domain}/`} />
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={`${site.name}${site.title ? ` — ${site.title}` : ""}`} />
+    <meta property="og:description" content={site.headline} />
+    <meta property="og:url" content={`https://${site.domain}/`} />
+    <meta property="og:image" content={`https://${site.domain}/og.jpg`} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={`${site.name}${site.title ? ` — ${site.title}` : ""}`} />
+    <meta name="twitter:description" content={site.headline} />
+    <meta name="twitter:image" content={`https://${site.domain}/og.jpg`} />
+    {site.twitter ? (
+      <meta name="twitter:site" content={site.twitter.startsWith("@") ? site.twitter : `@${site.twitter}`} />
+    ) : null}
 
     <link rel="icon" type="image/svg+xml" href={theme === "drive" ? "/favicon-drive.svg" : "/favicon.svg"} />
     <link rel="icon" href="/favicon.ico" />
@@ -104,7 +121,7 @@ function themeLabel(t: Theme) {
         <div class="card">
           <p>{site.about}</p>
           <p class="small">
-            If you send me your current title + 2–3 highlights you want emphasized, I’ll tighten this into a sharper bio.
+            I like clean interfaces, fast feedback loops, and projects that ship.
           </p>
         </div>
       </section>
