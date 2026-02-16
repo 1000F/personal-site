@@ -13,7 +13,7 @@ export const site = {
   domain: "www.adamsobrien.com",
 
   about:
-    "I’m Adam O’Brien. I do strategy & growth work (mostly through partnerships). I write at More Blood — short notes on momentum, learning, and craft.",
+    "I’m Adam O’Brien. I do strategy & growth work. I write at More Blood — short notes on momentum, learning, and craft.",
 
   // Optional contact
   email: "adamsobrien@gmail.com",
