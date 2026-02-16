@@ -34,19 +34,19 @@ function themeLabel(t: Theme) {
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
 
-    <title>{site.name}{site.title ? ` — ${site.title}` : ""}</title>
-    <meta name="description" content={`${site.name} — ${site.headline}`} />
+    <title>{site.name}{site.title ? ` ${site.title}` : ""}</title>
+    <meta name="description" content={`${site.name} ${site.headline}`} />
     <link rel="canonical" href={`https://${site.domain}/`} />
 
     <!-- Open Graph / Twitter -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content={`${site.name}${site.title ? ` — ${site.title}` : ""}`} />
+    <meta property="og:title" content={`${site.name}${site.title ? ` ${site.title}` : ""}`} />
     <meta property="og:description" content={site.headline} />
     <meta property="og:url" content={`https://${site.domain}/`} />
     <meta property="og:image" content={`https://${site.domain}/og.jpg`} />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={`${site.name}${site.title ? ` — ${site.title}` : ""}`} />
+    <meta name="twitter:title" content={`${site.name}${site.title ? ` ${site.title}` : ""}`} />
     <meta name="twitter:description" content={site.headline} />
     <meta name="twitter:image" content={`https://${site.domain}/og.jpg`} />
     {site.twitter ? (
@@ -129,9 +129,6 @@ function themeLabel(t: Theme) {
         <h2>About</h2>
         <div class="card">
           <p>{site.about}</p>
-          <p class="small">
-            I like clean interfaces, fast feedback loops, and projects that ship.
-          </p>
         </div>
       </section>
 
